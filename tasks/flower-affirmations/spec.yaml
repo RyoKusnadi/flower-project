@@ -1,0 +1,105 @@
+# tasks/flower-affirmations/spec.yaml
+
+task_id: FLOWER-001
+title: "Interactive Flower & Affirmations Web App"
+
+objective: |
+  Build a single-page TypeScript web app that renders an animated 3D-style
+  flower bouquet on a dark background with floating words of affirmation
+  displayed around the flowers. The visual style should feel warm and intimate —
+  glowing neon-bordered pill labels, soft particle effects, and lush illustrated flowers.
+
+tech_stack:
+  - "TypeScript (compiled via tsc or bundled via Vite)"
+  - "HTML5 Canvas or CSS/SVG animations — no external UI frameworks"
+  - "No React, no Vue — vanilla TS only"
+
+constraints:
+  - "Single HTML entry point: src/index.html"
+  - "All logic in TypeScript under src/"
+  - "No npm packages beyond devDependencies (vite, typescript)"
+  - "Must run locally with: npm run dev"
+  - "Must build cleanly with: npm run build"
+
+visual_requirements:
+  flowers:
+    bouquet_composition:
+      - name: "Mawar (Rose)"
+        description: "Classic layered rose with spiraling petals, coral/red tones, prominent in the center-back of the bouquet"
+        color: "coral-red (#E8503A)"
+      - name: "Lily"
+        description: "Open trumpet-shaped lily with 6 swept-back petals, orange-to-peach gradient, placed tall and prominent"
+        color: "orange-peach (#F4845F)"
+      - name: "Baby's Breath"
+        description: "Clusters of tiny white/cream florets on delicate branching stems, fills negative space between larger flowers"
+        color: "cream-white (#FFF5EE)"
+      - name: "Pom Pom (Pom2)"
+        description: "Dense spherical chrysanthemum/pom-pom with tightly packed short petals, full and round silhouette"
+        color: "deep-coral (#D94F3D)"
+    shared:
+      - "All flowers share stems and large teal/green leaves at the base"
+      - "Subtle idle animation: gentle sway on stems and leaves"
+      - "Small floating sparkle/particle effects around flower heads"
+  background:
+    - "Deep dark red-to-black radial gradient"
+    - "Faint star-like dots scattered across the canvas"
+  affirmations:
+    style: "Rounded pill shape, dark semi-transparent fill, neon-red/pink glowing border"
+    placement: "Floating around the bouquet — top-left, top-right, bottom-center, mid-right, mid-left"
+    animation: "Gentle float up-down on independent timers (no two labels in sync)"
+    default_messages:
+      - "You are my favorite person"
+      - "I'm lucky to have you"
+      - "Every flower reminds me of you"
+      - "Forever grateful for you 🌙"
+      - "So grateful to have you"
+      - "You make everything brighter"
+      - "Thank you for being you"
+      - "You are deeply loved"
+      - "My heart is full because of you"
+      - "You mean the world to me"
+
+  photo_gallery:
+    trigger: "Click on any flower in the bouquet"
+    behavior: |
+      Opens a full-screen lightbox/modal overlay that cycles through couple photos
+      as a slideshow. Clicking outside or pressing Escape closes it.
+    photos:
+      - "src/assets/photos/photo1.jpg"
+      - "src/assets/photos/photo2.jpg"
+      - "src/assets/photos/photo3.jpg"
+      - "src/assets/photos/photo4.jpg"
+      - "src/assets/photos/photo5.jpg"
+      - "src/assets/photos/photo6.jpg"
+    modal_style:
+      background: "Dark semi-transparent overlay (rgba(0,0,0,0.85))"
+      photo_display: "Centered, rounded corners, max 80vw x 80vh, object-fit cover"
+      navigation: "Left/right arrow buttons to go between photos"
+      close: "X button top-right corner + click outside to dismiss"
+      animation: "Fade in/out transition between photos (300ms)"
+      caption: "Optional small caption area below photo (empty by default)"
+
+deliverables:
+  - "src/index.html"
+  - "src/main.ts"
+  - "src/gallery.ts"
+  - "src/styles.css"
+  - "src/assets/photos/photo1.jpg"
+  - "src/assets/photos/photo2.jpg"
+  - "src/assets/photos/photo3.jpg"
+  - "src/assets/photos/photo4.jpg"
+  - "src/assets/photos/photo5.jpg"
+  - "src/assets/photos/photo6.jpg"
+  - "package.json"
+  - "tsconfig.json"
+  - "vite.config.ts"
+
+validation_criteria:
+  - "Runs on localhost with npm run dev without errors"
+  - "Flowers render with correct color palette (coral petals, teal leaves)"
+  - "All affirmation labels visible and animating independently"
+  - "Clicking a flower opens the photo gallery modal"
+  - "Arrow navigation cycles through all 5 photos"
+  - "Escape key and outside click closes the modal"
+  - "No TypeScript compilation errors (tsc --noEmit passes)"
+  - "Page is responsive to viewport width (no horizontal scroll on desktop)"
