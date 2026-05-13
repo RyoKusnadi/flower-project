@@ -412,7 +412,7 @@ function initAffirmations(container: HTMLElement, gallery: Gallery): void {
     if (pos.left)   pill.style.left   = pos.left
     if (pos.right)  pill.style.right  = pos.right
     pill.addEventListener('click', () => {
-      gallery.open(Math.floor(Math.random() * photoCount))
+      gallery.open(i % photoCount)
     })
     container.appendChild(pill)
   })
