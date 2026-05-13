@@ -425,9 +425,12 @@ function initMainScene(): void {
   initRomance(document.getElementById('romance-canvas') as HTMLCanvasElement)
 
   const gallery = new Gallery([
-    './assets/photos/photo1.jpg', './assets/photos/photo2.jpg',
-    './assets/photos/photo3.jpg', './assets/photos/photo4.jpg',
-    './assets/photos/photo5.jpg', './assets/photos/photo6.jpg',
+    new URL('./assets/photos/photo1.jpg', import.meta.url).href,
+    new URL('./assets/photos/photo2.jpg', import.meta.url).href,
+    new URL('./assets/photos/photo3.jpg', import.meta.url).href,
+    new URL('./assets/photos/photo4.jpg', import.meta.url).href,
+    new URL('./assets/photos/photo5.jpg', import.meta.url).href,
+    new URL('./assets/photos/photo6.jpg', import.meta.url).href,
   ])
 
   buildBouquet(document.getElementById('bouquet-container')!)
